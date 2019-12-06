@@ -7,7 +7,7 @@ class City:
     self.name = name
     self.lat = lat
     self.lon = lon
-  def __repr__(self):
+  def __str__(self):
     return f'city: {self.name} | lat: {self.lat} | long: {self.lon}'
 
 
