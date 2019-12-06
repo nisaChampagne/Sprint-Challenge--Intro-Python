@@ -28,7 +28,7 @@ def cityreader():
   cities = []
   with open('cities.csv', "r") as data:
     reader = csv.reader(data)
-    next(reader## needed to have passing tests)
+    next(reader)## needed to have passing tests)
     for row in reader:
       cities.append(City(row[0],row[3],row[4]))
   return cities
