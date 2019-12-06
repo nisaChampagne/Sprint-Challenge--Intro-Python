@@ -27,7 +27,8 @@ class City:
 def cityreader():
   cities = []
   ##empty list called cities
-  with open('cities.csv', "r") as data:
+  with open('cities.csv') as data:
+    #default is "r" read only
     ##accessing the .csv file as data
     reader = csv.reader(data)
     ##(name) reader = the csv reader that will read "data"
@@ -36,7 +37,8 @@ def cityreader():
       #for singular row in the reader
       cities.append(City(row[0],row[3],row[4]))
       ##add to list called cities  row at index 0, 3, and 4
-  return cities
+      #cast them to float here
+    return cities
 
 cities = cityreader()
 ##cities is being defined through the cityreader() function
@@ -79,11 +81,11 @@ for c in cities:
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
-  # lat = [min(lat1, lat2), min(lat1, lat2)]
-  # lon = [min(lon1, lon2), min(lon1, lon2)]
-  # for c in cities:
-  #   if c.lat >= lat[0] and c.lat <= lat[1] and c.lon >= lon[0] and c.lon <= lon[1]:
-  #     within.append(c)
+  lat = [min(lat1, lat2), max(lat1, lat2)]
+  lon = [min(lon1, lon2), max(lon1, lon2)]
+  for c in cities:
+    if c.lat >= lat[0] and c.lat <= lat[1] and c.lon >= lon[0] and c.lon <= lon[1]:
+      within.append(c)
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
