@@ -8,6 +8,8 @@ class Human:
     def __repr__(self):
         return f"<Human: {self.name}, {self.age}>"
 
+##  items= {} <- dictionary 
+##  items = [] <---- just a list
 humans = [
     Human("Alice", 29),
     Human("Bob", 32),
@@ -19,25 +21,26 @@ humans = [
     Human("Harrison", 12),
     Human("Igon", 41),
     Human("David", 31),
-]
+] #list
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [h.name for h in humans if (h.name[0]=="D")]
+a = [h.name for h in humans if h.name[0]=="D"]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [h.name for h in humans if (h.name[-1] == "e")]
+b = [h.name for h in humans if h.name[-1] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = [h.name for h in humans if (h.name[0] in ["C", "D", "E", "F", "G"])]
+c = [h.name for h in humans if h.name[0] in ["C", "D", "E", "F", "G"]]
 print(c)
+#can treat like number versus list
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
