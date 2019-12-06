@@ -5,8 +5,8 @@ import csv
 class City:
   def __init__(self, name, lat, lon):
     self.name = name
-    self.lat = (lat)
-    self.lon = (lon)
+    self.lat = float(lat)
+    self.lon = float(lon)
   def __repr__(self):
     return f'city: {self.name} | lat: {self.lat} | long: {self.lon}'
 
@@ -26,9 +26,9 @@ class City:
 
 def cityreader():
   cities = []
-  with open('cities.csv', "r") as data:## haveing "rb" throws encoding error
-    ## " r " = read only mode, " rb " = Opens the file as read-only in binary format
+  with open('cities.csv', "r") as data:
     reader = csv.reader(data)
+    next(reader## needed to have passing tests)
     for row in reader:
       cities.append(City(row[0],row[3],row[4]))
   return cities
@@ -73,9 +73,16 @@ for c in cities:
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
+  # lat = [min(lat1, lat2), min(lat1, lat2)]
+  # lon = [min(lon1, lon2), min(lon1, lon2)]
+  # for c in cities:
+  #   if c.lat >= lat[0] and c.lat <= lat[1] and c.lon >= lon[0] and c.lon <= lon[1]:
+  #     within.append(c)
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+  # print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  # print(within)
