@@ -5,8 +5,8 @@ import csv
 class City:
   def __init__(self, name, lat, lon):
     self.name = name
-    self.lat = float(lat)
-    self.lon = float(lon)
+    self.lat = lat
+    self.lon = lon
   def __repr__(self):
     return f'city: {self.name} | lat: {self.lat} | long: {self.lon}'
 
